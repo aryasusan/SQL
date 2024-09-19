@@ -1,0 +1,37 @@
+Create Query:
+    create database db_name;
+
+list databases:
+    show databases;
+
+Delete a DB:
+    drop database db_name;
+
+Create a table:
+    - a table is created inside a DB
+    Query:
+        use db_name;
+        create table tb_name(schema);
+        - schema refers to columns and its datatype
+    Example: consider the data:
+               c1 c2 c3 c4
+                1 3   4  5
+                2 6   7  8
+                8 2   4  9
+                4 6   7   8
+            use db1;
+            create table tb1(c1 int, c2 int, c3 int, c4 int);
+list table:
+    show tables
+
+view table schemas:
+    describe tb_name;
+
+add column to table: added at the end
+    alter table tb_name add col_name datatype;
+
+add new_column to table in between
+    alter table tb_name add new_col_name dtype after existing_col_name;
+
+add column to table in the beginning
+    alter table tb_name add new_column dtype first

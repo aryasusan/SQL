@@ -1,0 +1,11 @@
+- int
+- bigint -eg:Phone_number
+- float  :for decimal
+- double :for larger decimal
+
+- varchar() : for string data
+    - pass character limit
+    - eg: varchar(10) - limits the char length to 10, space is also considered
+
+- date  : format- YYYY-MM-DD, if format is different use varchar()
+- datetime : YYYY-MM-DD HH:MM:SS

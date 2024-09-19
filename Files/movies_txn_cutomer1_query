@@ -1,0 +1,23 @@
+use db_demo1;
+mysql> create table tb_customer1(id bigint, fname varchar(20), lname varchar(20), age int, proff varchar(20), location varchar(20));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_db_demo1 |
++--------------------+
+| tb_customer1       |
+| tb_sample1         |
+| tb_sample2         |
+| tb_sample4         |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create table movies(id bigint, name varchar(50), year int, rating float,
+duration float);
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table txn(order_id bigint, date varchar(50), custr_id bigint, amount float, category varchar(50), product varchar(50), city varchar(50),location varchar(50), payment_method varchar(10) );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> show tables;
