@@ -12,3 +12,5 @@
     select a.name,a.age,a.loc,a.salary,b.dat,b.amount from custom_csv a join order_csv b on (a.id=b.id) where a.salary>2000;
     select a.name,a.age,a.loc,b.dat,b.amount from custom_csv a join order_csv b on (a.id=b.id) order by a.age desc limit 1;
     select a.name,a.age,a.loc,b.dat,b.amount from custom_csv a join order_csv b on (a.id=b.id) order by b.dat desc limit 1;
+    
+    select a.name,a.roll,b.result from student_csv a join result b on(a.roll=b.roll);
