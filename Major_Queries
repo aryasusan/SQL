@@ -27,11 +27,69 @@ list table:
 view table schemas:
     describe tb_name;
 
-add column to table: added at the end
+add column to table: added at the end:
     alter table tb_name add col_name datatype;
 
-add new_column to table in between
+add new_column to table in between:
     alter table tb_name add new_col_name dtype after existing_col_name;
 
-add column to table in the beginning
+add column to table in the beginning:
     alter table tb_name add new_column dtype first
+
+add multiple columns: added at the end
+    alter table tb_name add (col1 dtype, col2 dtype);
+
+add multiple columns: added to the required position
+    alter table tb_name add col1 dtype after col_name, add col2 dtype after col_name;
+
+change dtype of a column:
+    alter table tb_name modify col_name new_dtype;
+
+change col_name:
+    alter table tb_name change old_col_name new_col_name dtype;
+
+drop a column:
+    alter table tb_name drop col_name;
+
+drop multiple columns:
+    alter table tb_name drop col1,drop col2;
+
+change table name:
+    alter table tb_name rename new_tb_name;
+
+drop a table:
+    drop table tb_name;
+
+insert values to my_sql table:
+    insert into tb_name(col_names) values(values);
+    insert into tb_name(col_names) values(row1),(row2),(row3),(row4)
+
+view table content:
+    select * from tb_name;
+
+update a value in a column:
+    update tb_name set col_name=value condition;
+
+delete a row:
+    delete from tb_name condition;
+
+drop duplicate rows:
+    select distinct * from tb_name;
+
+diff b/n drop and truncate:
+    drop- structure and values get dropped
+    truncate - only values get dropped - truncate table tb_name;
+
+
+CRUD:
+    Create Read Update Delete
+
+Data load from file:
+    - using cmd: create a table corresponding to the data file with correct schemas
+        load data local infile '/file_path' into table tb_name fields terminated by 'data_separation' lines terminated by '\n';
+
+        this query throws a permission error: then use SET GLOBAL LOCAL_INFILE=TRUE; which again throws an error
+        then exit sql using ctrl+z or command exit;
+        then start sql using: mysql --local-infile=1 -u root -p;
+
+    - using my_sql_workbench

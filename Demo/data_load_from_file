@@ -1,0 +1,92 @@
+mysql> use db_demo1
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_db_demo1 |
++--------------------+
+| movies             |
+| student            |
+| tb_customer1       |
+| tb_sample1         |
+| tb_sample2         |
+| tb_sample3         |
+| tb_sample4         |
+| txn                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> create table sample_4(id int, fname varchar(30),lname varchar(30),age int, phone bigint,location varchar(40);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table sample_4(id int, fname varchar(30),lname varchar(30),age int, phone bigint,location varchar(40));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> load data local infile'/home/arya/Projects/SQL/Files/sample4.txt' into table sample_4 fields terminated by ',';
+ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides
+mysql> SET GLOBAL LOCAL_INFILE=TRUE;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+[1]+  Stopped                 mysql -u root -p
+arya@arya-VirtualBox:~$ mysql --local-infile=1 -u root -p;
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.39-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use db_demo1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_db_demo1 |
++--------------------+
+| movies             |
+| sample_4           |
+| student            |
+| tb_customer1       |
+| tb_sample1         |
+| tb_sample2         |
+| tb_sample3         |
+| tb_sample4         |
+| txn                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use db_demo1;
+Database changed
+mysql> load data local infile'/home/arya/Projects/SQL/Files/sample4.txt' into table sample_4 fields terminated by ',';
+Query OK, 13 rows affected, 27 warnings (0.02 sec)
+Records: 13  Deleted: 0  Skipped: 0  Warnings: 27
+
+mysql> select * from sample_4;
++------+--------------------+--------------------+------+------------+--------------------------+
+| id   | fname              | lname              | age  | phone      | location                 |
++------+--------------------+--------------------+------+------------+--------------------------+
+               |            | Reddy              |   21 | 9848022337 | Hyderabad
+                 |          | Battacharya        |   22 | 9848022338 | Kolkata
+                   |        | Khanna             |   22 | 9848022339 | Delhi
+                    |       | Agarwal            |   21 | 9848022330 | Pune
+|    5 | Trupthi            | Mohanthy           |   23 | 9848022336 | Bhuwanesh            |
+                 |          | Mishra             |   23 | 9848022335 | Chennai
+|    7 | Komal              | Nayak              |   24 | 9848022334 | trivendra              |
+                 |          | Nambiayar          |   24 | 9848022333 | Chennai
+|    0 | NULL               | NULL               | NULL |       NULL | NULL                     |
+|    0 | NULL               | NULL               | NULL |       NULL | NULL                     |
+|    0 | NULL               | NULL               | NULL |       NULL | NULL                     |
+|    0 |  fname varchar(20) |  lname varchar(20) |    0 |          0 |  location |archar(20));
+|    0 | NULL               | NULL               | NULL |       NULL | NULL                     |
++------+--------------------+--------------------+------+------------+--------------------------+
+13 rows in set (0.00 sec)

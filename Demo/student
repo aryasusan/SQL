@@ -1,0 +1,65 @@
+use db_demo1;
+mysql> create table student(id int, fname varchar(30), lname varchar(40),course
+varchar(60), duration int, fees bigint);
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_db_demo1 |
++--------------------+
+| movies             |
+| student            |
+| tb_customer1       |
+| tb_sample1         |
+| tb_sample2         |
+| tb_sample3         |
+| tb_sample4         |
+| txn                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> insert into student(id,fname,lname,course,duration,fees) values(1,'arya','susan','datascience',6,50000),(2,'babu','jacob','python',3,25000),(3,'jacob','babu','ml',4,30000),4,45000);
+Query OK, 5 rows affected (0.03 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-------+----------+-------------+----------+-------+
+| id   | fname | lname    | course      | duration | fees  |
++------+-------+----------+-------------+----------+-------+
+|    1 | arya  | susan    | datascience |        6 | 50000 |
+|    2 | babu  | jacob    | python      |        3 | 25000 |
+|    3 | jacob | babu     | ml          |        4 | 30000 |
+|    4 | basil | peter    | ai          |        4 | 50000 |
+|    5 | beena | varghese | java        |        4 | 45000 |
++------+-------+----------+-------------+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> update student set lname='yacob' where id=2;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+-------+----------+-------------+----------+-------+
+| id   | fname | lname    | course      | duration | fees  |
++------+-------+----------+-------------+----------+-------+
+|    1 | arya  | susan    | datascience |        6 | 50000 |
+|    2 | babu  | yacob    | python      |        3 | 25000 |
+|    3 | jacob | babu     | ml          |        4 | 30000 |
+|    4 | basil | peter    | ai          |        4 | 50000 |
+|    5 | beena | varghese | java        |        4 | 45000 |
++------+-------+----------+-------------+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> delete from student where id=2;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from student;
++------+-------+----------+-------------+----------+-------+
+| id   | fname | lname    | course      | duration | fees  |
++------+-------+----------+-------------+----------+-------+
+|    1 | arya  | susan    | datascience |        6 | 50000 |
+|    3 | jacob | babu     | ml          |        4 | 30000 |
+|    4 | basil | peter    | ai          |        4 | 50000 |
+|    5 | beena | varghese | java        |        4 | 45000 |
++------+-------+----------+-------------+----------+-------+
+4 rows in set (0.00 sec)
